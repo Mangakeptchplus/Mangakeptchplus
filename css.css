@@ -1,0 +1,126 @@
+/* สไตล์ทั่วๆ ไป */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+/* ส่วนของ Header */
+header {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Container สำหรับแสดงมังงะ */
+.manga-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 30px;
+}
+
+/* การแสดงการ์ดมังงะ */
+.manga-item {
+    width: 220px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* ปรับขนาดรูปภาพ */
+.manga-item img {
+    width: 100%;
+    height: auto;
+    border-bottom: 1px solid #ddd;
+}
+
+/* ส่วนชื่อเรื่อง */
+.manga-item h3 {
+    padding: 10px;
+    margin: 0;
+    background-color: #444;
+    color: white;
+    font-size: 16px;
+}
+
+/* เพิ่มความห่างให้กับปุ่ม */
+.manga-item button {
+    margin: 10px;
+    padding: 10px;
+    background-color: #444;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+/* ปุ่มเมื่อ hover */
+.manga-item button:hover {
+    background-color: #555;
+}
+
+/* ฟังก์ชันการแสดงหน้ามังงะ */
+.reader-container {
+    padding: 20px;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.reader-container img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+/* ปุ่มถัดไปและย้อนกลับ */
+.controls {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    padding: 0 20px;
+}
+
+.controls button {
+    padding: 12px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #444;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    width: 45%;
+}
+
+.controls button:hover {
+    background-color: #555;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+footer p {
+    margin: 0;
+    font-size: 14px;
+}

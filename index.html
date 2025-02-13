@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>keptchplus</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .manga-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            padding: 20px;
+        }
+
+        .manga-item {
+            width: 200px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .manga-item img {
+            width: 100%;
+            height: auto;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .manga-item h3 {
+            padding: 10px;
+            margin: 0;
+            background-color: #444;
+            color: white;
+        }
+
+        .manga-item p {
+            padding: 10px;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        .reader-container {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .reader-container img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+
+        .controls button {
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #444;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .controls button:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Mangakeptchplus</h1>
+    </header>
+
+    <div class="manga-container">
+        <!-- มังงะ -->
+        <div class="manga-item">
+            <img src="C:\Users\hutao\Downloads\web\web\รูปมังฮวา\Killer Peter.jpg" alt="Manga 1">
+            <br>
+            <h3>Killer Peter</h3>
+            <br>
+            <a href="reader_page.html">
+                <button onclick="openReader()">อ่านตอนแรก</button>
+
+                <script>
+                    function openReader() {
+                        window.open("Killer Peter_page.html", "_blank");  // เปิดหน้าใหม่
+                    }
+                </script>
+                
+            </a>
+            
+        </div>
+        <div class="manga-item">
+            <img src="C:\Users\hutao\Downloads\web\web\รูปมังฮวา\Revenge of the Iron-Blooded Sword Hound.png" alt="Manga 2">
+            <h3>Revenge of the Iron-Blooded Sword Hound</h3>
+            <br>
+            <a href="reader_page.html">
+                <button onclick="openReader()">อ่านตอนแรก</button>
+
+                <script>
+                    function openReader() {
+                        window.open("Revenge of the Iron-Blooded Sword Hound.html", "_blank");  // เปิดหน้าใหม่
+                    }
+                </script>
+                
+            </a>
+            
+        </div>
+    </div>
+
+    <div id="manga1" class="reader-container" style="display: none;">
+        <h2>มังงะเรื่องที่ 1 - ตอนที่ 1</h2>
+        <img src="https://via.placeholder.com/800x1200" alt="Manga Page 1">
+        <div class="controls">
+            <button onclick="previousPage('manga1')">ย้อนกลับ</button>
+            <button onclick="nextPage('manga1')">ถัดไป</button>
+        </div>
+    </div>
+
+    <div id="manga2" class="reader-container" style="display: none;">
+        <h2>มังงะเรื่องที่ 2 - ตอนที่ 1</h2>
+        <img src="https://via.placeholder.com/800x1200" alt="Manga Page 2">
+        <div class="controls">
+            <button onclick="previousPage('manga2')">ย้อนกลับ</button>
+            <button onclick="nextPage('manga2')">ถัดไป</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 เว็บไซต์อ่านมังงะอันดับ1ในไทย</p>
+    </footer>
+
+    <script>
+        let currentPage = 0;
+
+        // ฟังก์ชันในการเปิดหน้ามังงะ
+        function openMangaReader(mangaId) {
+            const mangaContainers = document.querySelectorAll('.reader-container');
+            mangaContainers.forEach(container => container.style.display = 'none'); // ซ่อนทุกหน้าที่เปิดไว้
+            document.getElementById(mangaId).style.display = 'block'; // แสดงหน้ามังงะที่เลือก
+        }
+
+        // ฟังก์ชันถัดไป
+        function nextPage(mangaId) {
+            currentPage++;
+            updatePage(mangaId);
+        }
+
+        // ฟังก์ชันย้อนกลับ
+        function previousPage(mangaId) {
+            if (currentPage > 0) {
+                currentPage--;
+                updatePage(mangaId);
+            }
+        }
+
+        // ฟังก์ชันอัพเดตหน้า
+        function updatePage(mangaId) {
+            const mangaImage = document.querySelector(`#${mangaId} img`);
+            mangaImage.src = `https://via.placeholder.com/800x1200?text=Page+${currentPage+1}`;
+        }
+    </script>
+</body>
+</html>

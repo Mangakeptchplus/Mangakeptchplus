@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>หน้าอ่านมังงะ</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .reader-container {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .reader-container img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+
+        .controls button {
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #444;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .controls button:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>ตอนที่ 1</h1>
+    </header>
+
+    <div class="reader-container">
+        <h2>Revenge of the Iron-Blooded Sword Hound</h2>
+        <img src="https://via.placeholder.com/800x1200" alt="Manga Page 1">
+        <div class="controls">
+            <a href="reader_page.html">
+            <button onclick="openReader()">ย้อนกลับ</button>
+            
+            <script>
+                function openReader() {
+                    window.open("index.html", "_blank");  // เปิดหน้าใหม่
+                }
+            </script>
+            
+        </a>
+        
+            <button onclick="openReader()">ตอนถัดไป</button>
+
+            <script>
+                function openReader() {
+                    window.open("index.html", "_blank");  // เปิดหน้าใหม่ในแท็บใหม่
+                }
+            </script>
+            
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 เว็บไซต์อ่านมังงะ</p>
+    </footer>
+
+    <script>
+        let currentPage = 0;
+
+        function nextPage() {
+            currentPage++;
+            updatePage();
+        }
+
+        function previousPage() {
+            if (currentPage > 0) {
+                currentPage--;
+                updatePage();
+            }
+        }
+
+        function updatePage() {
+            const mangaImage = document.querySelector('img');
+            mangaImage.src = `https://via.placeholder.com/800x1200?text=Page+${currentPage+1}`;
+        }
+    </script>
+
+</body>
+</html>
